@@ -1,0 +1,786 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]> <html class="no-js gt-ie9" lang="en"> <![endif]-->
+<head>
+
+  <!-- X-UA-Compatible has to be first after <head> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta charset="utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"fad72d6208",applicationID:"542910250"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(c(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(5),c=e(6),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,n){s[n]=i(p+n,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(l+"tracer",[u.now(),e,t],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&d("lcp",[t[t.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var n=Math.round(e.timeStamp),t={type:e.type};n<=p.now()?t.fid=p.now()-n:n>p.offset&&n<=Date.now()?(n-=p.offset,t.fid=p.now()-n):n=p.now(),g=!0,d("timing",["fi",n,t])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(4),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,y=["click","keydown","mousedown","pointerdown","touchstart"];y.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e){function n(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,n,!1)}n.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],5:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],6:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],7:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?f(e,c,o):o()}function t(t,r,i,o){if(!p.aborted||o){e&&e(t,r,i);for(var a=n(i),c=v(t),f=c.length,u=0;u<f;u++)c[u].apply(a,r);var d=s[w[t]];return d&&d.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return d[e]=d[e]||i(t)}function y(e,n){u(e,function(e,t){n=n||"feature",w[t]=n,n in s||(s[n]=[])})}var h={},w={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:y,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var c="nr@context",f=e("gos"),u=e(5),s={},d={},p=n.exports=i();p.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(w,function(n,t){e[n]||(e[n]=t)});var t=a();f("mark",["onload",t+E.offset],null,"api"),f("timing",["load",t]);var r=l.createElement("script");r.src="https://"+e.agent,n.parentNode.insertBefore(r,n)}}function i(){"complete"===l.readyState&&o()}function o(){f("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(c=Math.max((new Date).getTime(),c))-E.offset}var c=(new Date).getTime(),f=e("handle"),u=e(5),s=e("ee"),d=e(3),p=window,l=p.document,m="addEventListener",v="attachEvent",g=p.XMLHttpRequest,y=g&&g.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:g,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var h=""+location,w={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1177.min.js"},b=g&&y&&y[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:c,now:a,origin:h,features:{},xhrWrappable:b,userAgent:d};e(1),e(2),l[m]?(l[m]("DOMContentLoaded",o,!1),p[m]("load",r,!1)):(l[v]("onreadystatechange",i),p[v]("onload",r)),f("mark",["firstbyte",c],null,"api");var x=0,O=e(7)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(6),a="nr@original",c=Object.prototype.hasOwnProperty,f=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,c,f;try{a=this,r=o(arguments),c="function"==typeof t?t(r,a):t||{}}catch(u){p([u,"",[r,a,i],c])}s(n+"start",[r,a,i],c);try{return f=e.apply(a,r)}catch(d){throw s(n+"err",[r,a,d],c),d}finally{s(n+"end",[r,a,f],c)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,d(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,c,f,u="-"===i.charAt(0);for(f=0;f<n.length;f++)c=n[f],a=e[c],r(a)||(e[c]=t(a,u?c+i:i,o,c))}function s(t,r,i){if(!f||n){var o=f;f=!0;try{e.emit(t,r,i,n)}catch(a){p([a,t,r,i])}f=o}}function d(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){p([r])}for(var i in e)c.call(e,i)&&(n[i]=e[i]);return n}function p(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+  <!-- google optimize -->
+  <style>.async-hide { opacity: 0 !important} </style>
+  <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+      h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+      (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+      {'GTM-M5SHJSB':true});</script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-653401-1', 'auto');  // Update tracker settings
+    ga('require', 'GTM-M5SHJSB');           // Add this line
+    // Remove pageview call
+  </script><link rel="stylesheet" href="https://use.typekit.net/gcm5jkd.css">
+      <style>
+      
+@charset "UTF-8";
+/* CSS Document */
+
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+/* NEWSROOM */
+
+.subtitle-text {
+font-family: "roboto" !important;
+}
+
+.newsroom-sidebar__content {
+background: none !important;
+border-radius: 25px !important;
+}
+
+.newsroom-sidebar__content h2, .newsroom-sidebar__content h3, .newsroom-sidebar__content h4 {
+color: #758592 !important;
+}
+
+.newsroom-sidebar__content {
+color: #758592 !important;
+}
+
+.paragraphs-item-newsroom-custom-tile, .newsroom-tile {
+
+border-radius: 25px !important;
+}
+
+.newsroom-news .newsroom-thumbnail, .newsroom-custom-section .newsroom-thumbnail {
+border-radius: 25px 25px 0 0 !important;
+}
+
+.paragraphs-item-newsroom-custom-tile:after, .newsroom-tile:after {
+border-radius: 25px !important;
+}
+
+.split-with-image .image-wrap img {
+border-radius: 25px !important;
+}
+
+.paragraph-bundle .button_cta a {
+border-radius: 12px !important;
+font-family: Comfortaa !important;
+text-transform: lowercase !important;
+padding: 7.5px 20px !important;
+}
+
+.title-text {
+font-family: Comfortaa !important;
+}
+/*
+h1, h2, h3, h4 {
+font-family: Comfortaa !important;
+}*/
+
+.newsroom-sidebar__content h1,
+.newsroom-sidebar__content h2,
+.newsroom-sidebar__content h3,
+.newsroom-sidebar__content h4 {
+font-family: "roboto" !important;
+}
+
+.paragraphs-item-newsroom-custom-tile h3, .newsroom-tile h3 {
+font-size: 1.175em !important;
+}
+
+.newsroom-custom-section .newsroom-thumbnail img {
+border-radius: 25px 25px 0 0 !important;
+}
+
+.paragraphs-item-newsroom-custom-tile:after, .newsroom-tile:after {
+box-shadow: 0 10px 20px #D5DADE !important;
+}
+
+.paragraphs-item-newsroom-custom-tile:hover, .newsroom-tile:hover {
+box-shadow: 0 15px 20px #D5DADE !important;
+}
+
+/* END NEWSROOM */
+
+/* MARKETPLACE MAIN */
+
+
+.oval-button {
+border-radius: 12px !important;
+font-family: Comfortaa !important;
+text-transform: lowercase !important;
+padding: 7.5px 20px !important;
+
+}
+
+
+.results .resource-wrap .resource .content-wrap .provider-title {
+font-family: Comfortaa !important;
+color: #0047ba !important;
+}
+
+.results .resource-wrap .resource {
+border-radius: 25px !important;
+border: none !important;
+}
+
+.results .resource-wrap .resource .image-wrap {
+border-radius: 25px 25px 0 0 !important;
+}
+
+.featured-partner .right img {
+border-radius: 25px !important;
+}
+
+.results .resource-wrap .resource .content-wrap .provider-integration-status {
+}
+
+.filter-wrap .filters .filter > h2 {
+color: #919DA8 !important;
+}
+
+.filter-wrap {
+background: #fff !important;
+}
+
+/*
+.featured-partner {
+background: #0047ba url(/web/img/marketplace/feature_bg.jpg) center center no-repeat !important;
+}*/
+
+.filter > h2:after {
+color: #919DA8 !important;
+}
+
+.results .resource-wrap .resource .content-wrap .provider-title {
+line-height: 1.2 !important;
+}
+
+/* MARKETPLACE MAIN */
+
+/* MARKETPLACE DETAIL */
+
+.paragraphs-item-newsroom-custom-tile .subtitle-text, .newsroom-tile .subtitle-text {
+}
+
+.paragraph-bundle__webform form .form-actions input.form-submit {
+border-radius: 12px !important;
+font-family: Comfortaa !important;
+text-transform: lowercase !important;
+}
+
+.industry-solutions {
+padding: 50px !important;
+}
+
+.accordion {
+border-radius: 25px !important;
+}
+
+.accordion__item-content-wrapper img, .accordion__item-asset-wrapper img {
+border-radius: 25px !important;
+}
+
+.accordion__nav-title {
+font-family: "roboto" !important;
+}
+
+.paragraph-bundle__asset-download .container .asset-column .asset-outline {
+border-radius: 25px !important;
+}
+
+.category-column.title-text {
+font-size: 30px !important;
+line-height: 45px !important;
+color: #4c5d7d !important;
+}
+
+.title-text + p {
+color: #758592 !important;
+}
+
+.paragraph-bundle__asset-download .container .asset-column .asset-outline {
+border: solid 2px #F1F3F4 !important;
+}
+
+.paragraph-bundle__category-row.section-borders {
+border-top: none !important;
+border-bottom: none !important;
+}
+
+.accordion__display {
+background: #323E48 !important !important;
+}
+
+.accordion__item-title {
+text-shadow: none !important;
+}
+
+.accordion__item-content {
+text-shadow: none !important;
+}
+
+.paragraph-bundle__category-item .subtitle-text {
+color: #415364 !important;
+font-family: "roboto" !important;
+font-size: 16px !important;
+}
+
+.accordion__nav-item  {
+font-family: "roboto" !important;
+
+}
+
+/* END MARKETPLACE DETAIL */
+
+/* FOUNDERS */
+
+h1, h2, h3, h4 {
+font-family: Comfortaa !important;
+}
+
+.founder-slide__date {
+font-family: Comfortaa !important;
+}
+
+/* END FOUNDERS */
+
+/* OFFICE LOCATIONS */
+
+.office-small {
+border-radius: 25px !important;
+}
+
+.office-large__url, .office-large__contact-us, .office-large__department-email, .office-small__url, .office-small__email, .office-small__contact-us-link {
+font-family: "roboto" !important;
+}
+
+.office-small.-overflowed:after {
+font-family: Comfortaa !important;
+}
+
+.office-small__heading {
+font-family: "roboto" !important;
+font-weight: normal !important;
+color: #323e48 !important;
+}
+.office-small__subheading {
+font-family: "roboto" !important;
+font-weight: normal !important;
+}
+
+.office-large__container {
+border-radius: 25px !important;
+}
+
+
+/* END OFFICE LOCATIONS */
+
+/* REQUEST DEMO */
+
+.wysiwyg-content h1, .wysiwyg-content h2, .wysiwyg-content h3, .wysiwyg-content h4, .wysiwyg-content h5, .wysiwyg-content h6 {
+font-family: Comfortaa !important;
+}
+
+.left .content-inner .page-title {
+font-family: "roboto" !important;
+}
+
+.above-form {
+font-family: "roboto" !important;
+}
+
+.form-item .form-text, .form-item .form-select, .form-item .form-textarea {
+box-shadow: none !important;
+}
+
+/* END REQUEST DEMO */
+
+/* ABOUT */
+
+h1, h2, h3, h4 {
+font-family: Comfortaa !important;
+}
+
+.about-us-page .about-banner__subheading {
+font-family: "roboto" !important;
+}
+
+.intro__heading {
+font-family: "roboto" !important;
+font-weight: normal !important;
+}
+
+.logos__image {
+border-radius: 25px !important;
+}
+
+.questions__callout-image {
+border-radius: 25px !important;
+}
+
+/* END ABOUT */
+
+/* PARTNERS */
+
+/* END PARTNERS */
+
+/* EVENTS */
+
+.results .resource-wrap .resource .content-wrap h4 {
+font-family: "roboto" !important;
+text-transform: uppercase !important;
+}
+
+.results .resource-wrap .resource .content-wrap h2 {
+font-family: "roboto" !important;
+font-weight: normal
+}
+
+.results .resource-wrap .resource .content-wrap h2 {
+color: #0047ba !important;
+margin-bottom: 10px !important;
+font-family: Comfortaa !important;
+line-height: 24px !important;
+}
+
+.event-date {
+margin: 0 0 20px 0 !important;
+}
+
+/* END EVENTS */
+
+/* INNOVATION FUND */
+
+.innovation-banner__heading {
+text-transform: none !important;
+}
+
+.why-work-with-cornerstone__reason-heading {
+font-weight: normal !important;
+font-family: "roboto" !important;
+}
+
+/* END INNOVATION FUND */
+
+/* EXECUTIVES MAIN */
+
+.executive-detail .about-banner__heading {
+text-transform: none !important;
+}
+
+.exec-grid__exec {
+border-radius: 50px !important;
+border: 15px solid white !important;
+box-sizing: border-box !important;
+}
+
+/* END EXECUTIVES MAIN */
+
+/* EXECUTIVES DETAIL */
+
+.executive-detail .about-banner__heading {
+text-decoration: none !important;
+}
+
+.about-banner__subheading {
+font-family: "roboto" !important;
+}
+
+.intro__quote {
+font-family: "roboto" !important;
+font-weight: normal !important;
+}
+
+.exec-grid__heading {
+text-transform: none !important;
+}
+
+/* END EXECUTIVES DETAIL */
+
+/* BOARD */
+
+.board-page-title h1 {
+text-transform: none !important;
+}
+
+.board-page-title h2 {
+font-family: "roboto" !important;
+}
+
+/* END BOARD */
+
+/* SMB LANDING PAGE */
+
+.resource-card__type {
+font-family: "roboto" !important;
+color: #415364 !important;
+}
+
+.paragraphs-items-field-icon-item h3 {
+font-family: "roboto" !important;
+}
+
+/* END SMB LANDING PAGE */
+
+/* RESOURCES */
+
+.results .resource-wrap .resource .content-wrap h2 {
+font-size: 1.2em !important;
+line-height: 1.2 !important;
+}
+
+.node-type-video .form-button{
+top: 70px;
+position: relative;
+}
+.node-type-webinar .form-button {
+margin-top: 70px !important;
+display: inline-block;
+}
+/* END RESOURCES */
+
+
+/* IGNORE */
+.cta2016__background {
+background: url("https://www.cornerstoneondemand.com/sites/all/themes/evergreen/img/bg_footer_detault.jpg") !important;
+}
+
+    </style>
+    <title>Understanding Business Performance Management</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="The business world is constantly evaluating its methods to find business processes that are more efficient in terms of cost and the achievement of goals. The practice of creating metrics to measure performance is just one of the ways that business owners and managers attempt to get a better return on investment for their business processes. Business performance management is a" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link type="text/css" rel="stylesheet" href="https://acquia.cornerstoneondemand.com/sites/default/files/css/css_rEI_5cK_B9hB4So2yZUtr5weuEV3heuAllCDE6XsIkI.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://acquia.cornerstoneondemand.com/sites/default/files/css/css_VUPlIQ0ERpd5K3bjWeFWeUHqnCrmMwXhtoud3KWyWJ8.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://acquia.cornerstoneondemand.com/sites/default/files/css/css_2ySwEUxulNf5iQf-hN18gJHEdB4pd4yDAkTQAOd44wU.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://acquia.cornerstoneondemand.com/sites/default/files/css/css_6IGT_510P4sT6YpAqGKLxlIXL1b7Onsdi7uInLE5m5w.css" media="all" />
+
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="https://acquia.cornerstoneondemand.com/sites/default/files/css/css_7RRXLa0OtbMbor8XJUx_HD7U9XwiM-SFDnlm1mo3pwI.css" media="all" />
+<![endif]-->
+  <script src="/web/js/libs/modernizr-2.5.3.min.js"></script>
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/evergreen/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/evergreen/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/evergreen/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/sites/all/themes/evergreen/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/sites/all/themes/evergreen/img/favicon/safari-pinned-tab.svg" color="#0047ba">
+  <link rel="shortcut icon" href="/sites/all/themes/evergreen/img/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-config" content="/sites/all/themes/evergreen/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Add support for Promises for IE11 -->
+  <script type="text/javascript">
+    if(typeof window.Promise === "undefined") {
+      document.write('<script src="https://cdn.jsdelivr.net/bluebird/latest/bluebird.min.js"><\/script>');
+    }
+  </script>
+  <!-- Add support for Object.entries for IE11 -->
+  <script>
+    if (!Object.entries) {
+      Object.entries = function( obj ){
+        var ownProps = Object.keys( obj ),
+          i = ownProps.length,
+          resArray = new Array(i); // preallocate the Array
+        while (i--)
+          resArray[i] = [ownProps[i], obj[ownProps[i]]];
+
+        return resArray;
+      };
+    }
+  </script>
+  <!-- Add support for Object.assign for IE11 -->
+  <script>
+    if (typeof Object.assign !== 'function') {
+      // Must be writable: true, enumerable: false, configurable: true
+      Object.defineProperty(Object, "assign", {
+        value: function assign(target, varArgs) { // .length of function is 2
+          'use strict';
+          if (target === null || target === undefined) {
+            throw new TypeError('Cannot convert undefined or null to object');
+          }
+
+          var to = Object(target);
+
+          for (var index = 1; index < arguments.length; index++) {
+            var nextSource = arguments[index];
+
+            if (nextSource !== null && nextSource !== undefined) {
+              for (var nextKey in nextSource) {
+                // Avoid bugs when hasOwnProperty is shadowed
+                if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                  to[nextKey] = nextSource[nextKey];
+                }
+              }
+            }
+          }
+          return to;
+        },
+        writable: true,
+        configurable: true
+      });
+    }
+  </script>
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <!-- use the loaded jquery version, or load our own if offline -->
+  <script>window.jQuery || document.write('<script src="/web/js/jquery-1.7.1.min.js"><\/script>')</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+  
+  <!-- facebook tracking pixel -->
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1607392842814625&ev=PageView&noscript=1"/></noscript>
+
+  <link rel="canonical" href="https://www.cornerstoneondemand.com/understanding-business-performance-management" />
+
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-3171 node-type-page us" id="">
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TSBK8D" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TSBK8D');</script>  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is over ten years old! <a href="http://browsehappy.com/">Please upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+      <div id="page">
+        
+<nav class="nav">
+  <div id="menu-root"></div>
+</nav>
+
+
+    <section id="main">
+                    <div class="section">
+                                    <div id="content">
+                        <h1 id="title">Understanding Business Performance Management</h1>
+            <div class="node clearfix">
+  <p>The business world is constantly evaluating its methods to find business processes that are more efficient in terms of cost and the achievement of goals. The practice of creating metrics to measure performance is just one of the ways that business owners and managers attempt to get a better return on investment for their business processes. Business performance management is a way of monitoring the methods a company uses to reach its goals and then using data to find better methods. The idea of monitoring management procedures to develop effective methods for reaching goals has been around since business first began. Even the great warriors of ancient China understood the need to monitor processes and adjust based on the results. Business performance management was developed as a way to streamline this monitoring process and develop a more efficient way of achieving corporate goals.
+</p>
+
+<p><b>What Is Business Performance Management?</b>
+</p>
+
+<p>Business performance management is the act of setting corporate goals, monitoring the methods used to achieve those goals, and then creating ways for managers to more effectively achieve those goals. By collecting and analyzing data, a company can determine what effects managerial changes had on performance and then alter those changes to help create a more effective process. The idea of business performance management is a broad concept, but it is best used to analyze specific goals and help a company to save on operating costs, while generating more revenue at the same time. The important thing to remember about business performance management is that it is used to improve the performance of personnel and management. The use of metrics is just a means to an end, with that end being higher profitability.
+</p>
+
+<p><b>The Three Main Activities</b>
+</p>
+
+<p>Each business performance management monitoring program utilizes three primary activities: selection of goals, consolidation, and intervention. Each activity works with the other to help create a more efficient process. This is an extremely dynamic system where each activity affects the other and they are all working together to help develop better business processes.
+</p>
+
+<p><b>Selection of Goals</b>
+</p>
+
+<p>The selection of goals is actually an ongoing process that can be altered by the results that are achieved through intervention. The best place to start with any business performance management program is to set corporate goals and then determine the policies and methods that will be used to achieve those goals. Once the program is underway, the effects that changes have on the process will start to alter the goals. If a managerial decision helped to increase productivity, then it may be necessary to enhance the goal. The point of the goal is to give management a measuring stick to use when it comes to determining success.
+</p>
+
+<p><b>Information Monitoring</b>
+</p>
+
+<p>The second activity involved in business performance management is information monitoring, also known as information consolidation. This is the part of the process where the data is gathered and the pertinent data is analyzed and used to develop a better way to do business. The list of metrics used to create the data varies by company and by project, but the data becomes a critical part of the performance management process.
+</p>
+
+<p><b>Managerial Adjustments</b>
+</p>
+
+<p>Once the data has been reviewed, the management staff decides which measures to take to increase efficiency and profitability. These changes are charted and the effects they have go back into the information monitoring activity. It is critical that the adjustments made reflect the goals of the company. This can be tricky because the goals are not always financial. For example, if the goal is to improve employee job satisfaction by 20 percent, then the actions taken by management would not necessarily require a financial consideration.
+</p>
+
+<p><b>The Considerations of Implementation</b>
+</p>
+
+<p>When a company designs a business performance management program, there are several considerations that have to be made. Not only is company productivity a consideration, but there is also concern for:
+</p>
+
+<ul>
+	<li>Investors
+	</li>
+	<li>Vendors
+	</li>
+	<li>Partners
+	</li>
+	<li>Competition
+	</li>
+</ul>
+
+<p>Will the goals of the business performance management program weaken the company and allow the competition to start taking more market share? How much risk is the company willing to assume to reach these goals? Before implementing a business performance management plan, a company has to think of how such a plan will affect every aspect of its business.
+</p>
+
+<ul>
+	<li><a href="http://www.sci.brooklyn.cuny.edu/~firat/mis/PlugInT12.pdf">Business Process Management</a>
+	</li>
+	<li><a href="http://www.infoentrepreneurs.org/en/guides/review-your-business-performance/">Review Your Business Performance</a>
+	</li>
+	<li><a href="http://www.entrepreneur.com/article/234199">Managing People is an Art: 32 Ways to do it Right</a>
+	</li>
+	<li><a href="http://www.forbes.com/sites/victorlipman/2014/06/09/6-tips-for-managing-people-who-are-hard-to-manage/">6 Tips for Managing People Who are Hard to Manage</a>
+	</li>
+	<li><a href="http://www.inc.com/jeff-haden/key-to-leadership-managing-employees.html">The Only Management Strategy You Will Ever Need</a>
+	</li>
+	<li><a href="http://ocw.unu.edu/international-institute-for-software-technology/structures-and-processes-for-operating-and-implementing-e-governance/organization2.pdf">Change Management</a>
+	</li>
+	<li><a href="http://www.cio.com/article/2439713/change-management/seven-ways-to-effect-change.html">Seven Ways to Effect Change</a>
+	</li>
+	<li><a href="http://www.fireengineering.com/articles/print/volume-167/issue-6/features/how-politics-and-ethics-can-affect-change-management.html">How Politics and Ethics can Affect Change Management</a>
+	</li>
+	<li><a href="http://gbr.pepperdine.edu/2010/08/recognizing-organizational-culture-in-managing-change/">Recognizing Organizational Change in Managing Change</a>
+	</li>
+	<li><a href="http://www.gsb.stanford.edu/news/research/Baron_social.html">Social Pressures Affect Corporate Strategy and Performance</a>
+	</li>
+	<li><a href="http://www.orau.gov/pbm/documents/overview/uc.html">University of California Approach to Measuring Performance</a>
+	</li>
+	<li><a href="http://www.allbusiness.com/marketing/advertising/1415-1.html">Metrics for Measuring Ad Campaign Effectiveness</a>
+	</li>
+	<li><a href="http://posttrib.suntimes.com/news/26379566-418/yes-business-ethics-can-be-measured.html#.VCsheDJdV8E">Yes, Business Ethics Can Be Measured</a>
+	</li>
+	<li><a href="http://smallbusiness.foxbusiness.com/legal-hr/2013/12/16/4-unconventional-ways-to-increase-employee-productivity/">4 Unconventional Ways to Increase Employee Productivity</a>
+	</li>
+	<li><a href="http://www.bbc.co.uk/schools/gcsebitesize/business/production/breakevenanalysisrev1.shtml">Efficiency and Productivity</a>
+	</li>
+</ul>
+
+<p><a href="https://plus.google.com/u/0/115761307765510008760/ " rel="author">Madison Jones</a>
+</p>
+</div>          </div>
+                        </div>
+          </section>
+    <footer class="footer2016">
+  <div id="footer-root"></div>
+</footer>
+
+  </div>
+<!--[if lt IE 9]><p class=chromeframe>Your browser is over ten years old! <a href="http://browsehappy.com/">Please upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+<div id="overlay-modal"></div>
+<div class="nav__overlay"></div>
+<div class="hidden">
+
+  <!-- geo IP detection for GDRP -->
+  <script src="//js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js"></script>
+
+  <!-- cookie library needed for GDPR -->
+  <script src="//cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+  <script>window.Cookies || document.write('<script src="/web/js/libs/js.cookie.js"><\/script>')</script>
+
+  <script type="text/javascript" src="https://acquia.cornerstoneondemand.com/sites/default/files/js/js_SFQUZHVw6S0tjhfUECNFfCAl-QiQQ8Gf8-w_zGWhoJE.js"></script>
+<script type="text/javascript" src="https://acquia.cornerstoneondemand.com/web/js/libs/scrollmagic/2.0.5/ScrollMagic.min.js?qfkusr"></script>
+<script type="text/javascript" src="https://acquia.cornerstoneondemand.com/sites/default/files/js/js_RFC21SzUwD2sR7F8qElcDPf7iikAXXbjv-hznrWLFKg.js"></script>
+<script type="text/javascript" src="https://acquia.cornerstoneondemand.com/sites/default/files/js/js_JUiiuP4HCu39NlL7kIpKjllCuOd7YNOY-kadtKE4Q2E.js"></script>
+<script type="text/javascript" src="https://acquia.cornerstoneondemand.com/sites/default/files/js/js_dWhBODswdXXk1M5Z5nyqNfGljmqwxUwAK9i6D0YSDNs.js"></script>
+<script type="text/javascript" src="https://acquia.cornerstoneondemand.com/web/js/libs/jquery.scrolldepth.js?qfkusr"></script>
+<script type="text/javascript" src="https://acquia.cornerstoneondemand.com/sites/default/files/js/js_Fwe8OjmP4RJr3DEgOcfKqkrDiG1sqtJp2hzHnSsbcBc.js"></script>
+<script type="text/javascript" src="https://acquia.cornerstoneondemand.com/sites/default/files/js/js_Pr8A_c2PxMbu6nCqvuRHcQ7Vu8iGSC9mNEf6kld3Ldk.js"></script>
+<script type="text/javascript" src="https://acquia.cornerstoneondemand.com/sites/default/files/js/js_CCIZv4EDDxfuWM0sOIzngv30ZlNHt_XD5nOn6Dectbw.js"></script>
+<script type="text/javascript" src="https://acquia.cornerstoneondemand.com/sites/default/files/js/js_NhwBkW0nP-AGffKoJHcXLMeOs7LgFPx-zXsB4FTOF9U.js"></script>
+<script type="text/javascript" src="https://acquia.cornerstoneondemand.com/sites/default/files/js/js_1JDoDw6Ska9rGOucyTk20QxyKkzQJIQaBgnt6Lm55nc.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"evergreen","theme_token":"_qUCDwa9wJiCN784lqDcXfjg1D2RDv7e9B1_Hp-p9x4","js":{"web\/js\/libs\/ui-1.9m6\/jquery-ui.js":1,"web\/js\/libs\/jquery.mobile.custom.js":1,"web\/js\/libs\/scrollmagic\/2.0.5\/ScrollMagic.min.js":1,"web\/js\/libs\/gsap\/2.0.2\/TweenMax.js":1,"web\/js\/libs\/scrollmagic\/plugins\/animation.gsap.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"web\/js\/libs\/jquery.scrolldepth.js":1,"web\/js\/page-navigation.js":1,"web\/js\/jquery.scripts.js":1,"sites\/all\/modules\/custom\/webform_basecamp\/includes\/js\/jquery.form.min.js":1,"web\/js\/all.js":1,"web\/js\/components\/header\/header.js":1,"web\/js\/menu.js":1,"web\/js\/components\/CTA.js":1,"web\/js\/components\/footer.js":1,"web\/js\/error.js":1,"sites\/all\/themes\/evergreen\/..\/..\/..\/..\/web\/js\/gdpr-consent.js":1,"web\/js\/libs\/jquery.validate.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/logintoboggan\/logintoboggan.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/tagclouds\/tagclouds.css":1,"sites\/all\/themes\/evergreen\/compass\/css\/override\/kill\/ctools.css":1,"sites\/all\/themes\/evergreen\/compass\/css\/override\/kill\/field.css":1,"sites\/all\/themes\/evergreen\/compass\/css\/override\/kill\/node.css":1,"sites\/all\/themes\/evergreen\/compass\/css\/override\/kill\/system.menus.css":1,"sites\/all\/themes\/evergreen\/compass\/css\/override\/kill\/user.css":1,"sites\/all\/themes\/evergreen\/compass\/css\/override\/kill\/views.css":1,"sites\/all\/themes\/evergreen\/compass\/css\/override\/keep\/system.theme.css":1,"sites\/all\/themes\/evergreen\/compass\/css\/override\/keep\/search.css":1,"sites\/all\/themes\/evergreen\/compass\/css\/screen.css":1,"sites\/all\/themes\/evergreen\/compass\/css\/jackie.css":1,"sites\/all\/themes\/evergreen\/compass\/css\/ie.css":1}}});
+//--><!]]>
+</script>
+  <!-- bizo tracking images -->
+  <img src="//www.bizographics.com/collect/?fmt=gif&url=cornerstoneondemand.com" width="1" height="1" border="0" alt="" />
+  <noscript>
+    <img height="1" width="1" alt="" style="display:none;" src="//www.bizographics.com/collect/?pid=844&fmt=gif" />
+  </noscript>
+    </div>
+
+<script>
+  !(function(l) {
+    function e(e) {
+      for (
+        var r, t, n = e[0], o = e[1], u = e[2], f = 0, i = [];
+        f < n.length;
+        f++
+      )
+        (t = n[f]), p[t] && i.push(p[t][0]), (p[t] = 0);
+      for (r in o)
+        Object.prototype.hasOwnProperty.call(o, r) && (l[r] = o[r]);
+      for (s && s(e); i.length; ) i.shift()();
+      return c.push.apply(c, u || []), a();
+    }
+    function a() {
+      for (var e, r = 0; r < c.length; r++) {
+        for (var t = c[r], n = !0, o = 1; o < t.length; o++) {
+          var u = t[o];
+          0 !== p[u] && (n = !1);
+        }
+        n && (c.splice(r--, 1), (e = f((f.s = t[0]))));
+      }
+      return e;
+    }
+    var t = {},
+      p = { 1: 0 },
+      c = [];
+    function f(e) {
+      if (t[e]) return t[e].exports;
+      var r = (t[e] = { i: e, l: !1, exports: {} });
+      return l[e].call(r.exports, r, r.exports, f), (r.l = !0), r.exports;
+    }
+    (f.m = l),
+      (f.c = t),
+      (f.d = function(e, r, t) {
+        f.o(e, r) ||
+        Object.defineProperty(e, r, { enumerable: !0, get: t });
+      }),
+      (f.r = function(e) {
+        "undefined" != typeof Symbol &&
+        Symbol.toStringTag &&
+        Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
+          Object.defineProperty(e, "__esModule", { value: !0 });
+      }),
+      (f.t = function(r, e) {
+        if ((1 & e && (r = f(r)), 8 & e)) return r;
+        if (4 & e && "object" == typeof r && r && r.__esModule) return r;
+        var t = Object.create(null);
+        if (
+          (f.r(t),
+            Object.defineProperty(t, "default", { enumerable: !0, value: r }),
+          2 & e && "string" != typeof r)
+        )
+          for (var n in r)
+            f.d(
+              t,
+              n,
+              function(e) {
+                return r[e];
+              }.bind(null, n)
+            );
+        return t;
+      }),
+      (f.n = function(e) {
+        var r =
+          e && e.__esModule
+            ? function() {
+              return e.default;
+            }
+            : function() {
+              return e;
+            };
+        return f.d(r, "a", r), r;
+      }),
+      (f.o = function(e, r) {
+        return Object.prototype.hasOwnProperty.call(e, r);
+      }),
+      (f.p = "/");
+    var r = (window.webpackJsonp = window.webpackJsonp || []),
+      n = r.push.bind(r);
+    (r.push = e), (r = r.slice());
+    for (var o = 0; o < r.length; o++) e(r[o]);
+    var s = n;
+    a();
+  })([]);</script>
+<script src="/project-jam-header-footer/build/static/js/main.6c77c3ce.chunk.js" crossorigin="anonymous">
+</script>
+<script src="/project-jam-header-footer/build/static/js/2.b139cb4a.chunk.js" crossorigin="anonymous">
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"fad72d6208","applicationID":"542910250","transactionName":"YAMDNkJZWENUB0YKW1lJNBBZF19eUQFKTURfFg==","queueTime":0,"applicationTime":16,"atts":"TEQAQApDS00=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
